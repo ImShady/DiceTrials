@@ -37,26 +37,26 @@ public class DiceTrials extends javax.swing.JFrame {
 
         mainGroup = new javax.swing.ButtonGroup();
         lblTitle = new javax.swing.JLabel();
-        lblDiceNumbers = new javax.swing.JLabel();
-        lblDiceNumbers1 = new javax.swing.JLabel();
-        lblDiceNumbers2 = new javax.swing.JLabel();
+        lblDiceNumber2 = new javax.swing.JLabel();
+        lblOrDice = new javax.swing.JLabel();
+        lblNumber1 = new javax.swing.JLabel();
         jBoxDie1 = new javax.swing.JComboBox();
         jBoxDie2 = new javax.swing.JComboBox();
-        lblDiceNumbers3 = new javax.swing.JLabel();
-        lblDiceNumbers4 = new javax.swing.JLabel();
+        lblRunUntil = new javax.swing.JLabel();
+        lblInArow = new javax.swing.JLabel();
         txtInArow = new javax.swing.JTextField();
-        lblDiceNumbers5 = new javax.swing.JLabel();
+        lblDiceRollsTitle = new javax.swing.JLabel();
         txtHowMany = new javax.swing.JTextField();
-        lblDiceNumbers6 = new javax.swing.JLabel();
-        lblDiceNumbers7 = new javax.swing.JLabel();
+        lblTrialsComplete = new javax.swing.JLabel();
+        lblOrRunUntil = new javax.swing.JLabel();
         txtSuccess = new javax.swing.JTextField();
-        lblDiceNumbers9 = new javax.swing.JLabel();
+        lblSuccess = new javax.swing.JLabel();
         lblResult = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBegin = new javax.swing.JButton();
         rdoSuccess = new javax.swing.JRadioButton();
         rdoTrials = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        imgMainGIF = new javax.swing.JLabel();
+        btnInstructions = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -64,45 +64,45 @@ public class DiceTrials extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
         lblTitle.setText("Shady's Dice Simulator");
 
-        lblDiceNumbers.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
-        lblDiceNumbers.setText("Number 2:");
+        lblDiceNumber2.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        lblDiceNumber2.setText("Number 2:");
 
-        lblDiceNumbers1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers1.setText("Or a...");
+        lblOrDice.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblOrDice.setText("Or a...");
 
-        lblDiceNumbers2.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
-        lblDiceNumbers2.setText("Number 1:");
+        lblNumber1.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        lblNumber1.setText("Number 1:");
 
         jBoxDie1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         jBoxDie2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        lblDiceNumbers3.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers3.setText("Run until...");
+        lblRunUntil.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblRunUntil.setText("Run until...");
 
-        lblDiceNumbers4.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers4.setText("times In a row.");
+        lblInArow.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblInArow.setText("times In a row.");
 
-        lblDiceNumbers5.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers5.setText("Dice Roll Must equal a...");
+        lblDiceRollsTitle.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblDiceRollsTitle.setText("Dice Roll Must equal a...");
 
-        lblDiceNumbers6.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers6.setText("trials complete.");
+        lblTrialsComplete.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblTrialsComplete.setText("trials complete.");
 
-        lblDiceNumbers7.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers7.setText("Or...");
+        lblOrRunUntil.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblOrRunUntil.setText("Or...");
 
-        lblDiceNumbers9.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        lblDiceNumbers9.setText("trial(s) successful.");
+        lblSuccess.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        lblSuccess.setText("trial(s) successful.");
 
         lblResult.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         lblResult.setText("Result:");
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jButton1.setText("Run Trials");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBegin.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        btnBegin.setText("Run Trials");
+        btnBegin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBeginActionPerformed(evt);
             }
         });
 
@@ -110,13 +110,13 @@ public class DiceTrials extends javax.swing.JFrame {
 
         mainGroup.add(rdoTrials);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dicetrials/images/animated-dice-image-0020.gif"))); // NOI18N
+        imgMainGIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dicetrials/images/animated-dice-image-0020.gif"))); // NOI18N
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jButton2.setText("Instructions");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnInstructions.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        btnInstructions.setText("Instructions");
+        btnInstructions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnInstructionsActionPerformed(evt);
             }
         });
 
@@ -127,57 +127,62 @@ public class DiceTrials extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBegin, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDiceNumbers)
+                        .addComponent(lblDiceNumber2)
                         .addGap(18, 18, 18)
                         .addComponent(jBoxDie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(243, 243, 243))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(lblTitle)
-                .addContainerGap(192, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDiceNumbers1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtInArow, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(lblDiceNumbers4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDiceNumbers2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBoxDie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblDiceNumbers5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
                         .addComponent(rdoSuccess)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(imgMainGIF)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(lblDiceNumbers9))
+                        .addComponent(lblSuccess)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnInstructions)
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(lblDiceNumbers7))
+                        .addGap(146, 146, 146)
+                        .addComponent(lblTitle))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblOrDice)
+                        .addGap(304, 304, 304)
+                        .addComponent(lblOrRunUntil))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(txtInArow, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblInArow)
+                        .addGap(101, 101, 101)
                         .addComponent(lblResult))
-                    .addComponent(lblDiceNumbers3)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rdoTrials)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtHowMany, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(lblDiceNumbers6)))
-                .addGap(63, 63, 63))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNumber1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBoxDie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDiceRollsTitle))
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRunUntil)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rdoTrials)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtHowMany, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblTrialsComplete)))))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,58 +190,61 @@ public class DiceTrials extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lblTitle)
                 .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDiceRollsTitle)
+                    .addComponent(lblRunUntil))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNumber1)
+                    .addComponent(jBoxDie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTrialsComplete)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(rdoTrials)
+                                .addComponent(txtHowMany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOrDice)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(lblOrRunUntil)))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDiceNumbers5)
-                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDiceNumbers2)
-                            .addComponent(jBoxDie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addComponent(lblDiceNumbers1)
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDiceNumbers)
-                            .addComponent(jBoxDie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSuccess)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDiceNumber2)
+                                    .addComponent(jBoxDie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(txtInArow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblDiceNumbers4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDiceNumbers3)
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDiceNumbers6)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(rdoTrials)
-                                .addComponent(txtHowMany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(11, 11, 11)
-                        .addComponent(lblDiceNumbers7)
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInArow)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDiceNumbers9))
-                                .addGap(29, 29, 29)
-                                .addComponent(lblResult))
-                            .addComponent(rdoSuccess))))
+                                .addGap(3, 3, 3)
+                                .addComponent(lblResult))))
+                    .addComponent(rdoSuccess))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnBegin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1))
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(imgMainGIF))
+                    .addComponent(btnInstructions, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeginActionPerformed
         int num1 = jBoxDie1.getSelectedIndex() + 2;
         int num2 = jBoxDie2.getSelectedIndex() + 2;
         int pwin = 0, ptotal = 0, trials = 0;
@@ -290,13 +298,13 @@ public class DiceTrials extends javax.swing.JFrame {
             }
             lblResult.setText("<html>Result: <b><font color=\"red\">" + ptotal +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                                        
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBeginActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnInstructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstructionsActionPerformed
         
         new Instructions().setVisible(true);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnInstructionsActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -331,22 +339,22 @@ public class DiceTrials extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBegin;
+    private javax.swing.JButton btnInstructions;
+    private javax.swing.JLabel imgMainGIF;
     private javax.swing.JComboBox jBoxDie1;
     private javax.swing.JComboBox jBoxDie2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblDiceNumbers;
-    private javax.swing.JLabel lblDiceNumbers1;
-    private javax.swing.JLabel lblDiceNumbers2;
-    private javax.swing.JLabel lblDiceNumbers3;
-    private javax.swing.JLabel lblDiceNumbers4;
-    private javax.swing.JLabel lblDiceNumbers5;
-    private javax.swing.JLabel lblDiceNumbers6;
-    private javax.swing.JLabel lblDiceNumbers7;
-    private javax.swing.JLabel lblDiceNumbers9;
+    private javax.swing.JLabel lblDiceNumber2;
+    private javax.swing.JLabel lblDiceRollsTitle;
+    private javax.swing.JLabel lblInArow;
+    private javax.swing.JLabel lblNumber1;
+    private javax.swing.JLabel lblOrDice;
+    private javax.swing.JLabel lblOrRunUntil;
     private javax.swing.JLabel lblResult;
+    private javax.swing.JLabel lblRunUntil;
+    private javax.swing.JLabel lblSuccess;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTrialsComplete;
     private javax.swing.ButtonGroup mainGroup;
     private javax.swing.JRadioButton rdoSuccess;
     private javax.swing.JRadioButton rdoTrials;
