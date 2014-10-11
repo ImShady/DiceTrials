@@ -55,6 +55,7 @@ public class DiceTrials extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         rdoSuccess = new javax.swing.JRadioButton();
         rdoTrials = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -108,6 +109,8 @@ public class DiceTrials extends javax.swing.JFrame {
 
         mainGroup.add(rdoTrials);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dicetrials/images/animated-dice-image-0020.gif"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,13 +143,6 @@ public class DiceTrials extends javax.swing.JFrame {
                         .addComponent(lblDiceNumbers7))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(txtInArow, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(lblDiceNumbers4)
-                        .addGap(101, 101, 101)
-                        .addComponent(lblResult))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -156,10 +152,20 @@ public class DiceTrials extends javax.swing.JFrame {
                                 .addGap(155, 155, 155)
                                 .addComponent(rdoSuccess)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel1)))
                         .addGap(6, 6, 6)
-                        .addComponent(lblDiceNumbers9)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                        .addComponent(lblDiceNumbers9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(txtInArow, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblDiceNumbers4)
+                        .addGap(101, 101, 101)
+                        .addComponent(lblResult)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +212,13 @@ public class DiceTrials extends javax.swing.JFrame {
                             .addComponent(lblDiceNumbers4)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(lblResult)))
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton1))
+                                .addComponent(lblResult))))
                     .addComponent(rdoSuccess))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -219,9 +227,7 @@ public class DiceTrials extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int num1 = jBoxDie1.getSelectedIndex() + 2;
         int num2 = jBoxDie2.getSelectedIndex() + 2;
-        int pwin = 0;
-        int ptotal = 0;
-        int trials = 0;
+        int pwin = 0, ptotal = 0, trials = 0;
         Random random = new Random();        
         
         if(rdoSuccess.isSelected())
@@ -246,8 +252,31 @@ public class DiceTrials extends javax.swing.JFrame {
                 }
                 ptotal++;                                
             }
-            
-            lblResult.setText("<html>Result: " + ptotal +  "</br> out of " + trials + " trials met the sepcified criteria.");                            
+            lblResult.setText("<html>Result: <b><font color=\"red\">" + txtSuccess.getText() +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                            
+        }
+        else if(rdoTrials.isSelected())
+        {
+            for(int i = 0; i < Integer.parseInt(txtHowMany.getText()); i++)           
+            {
+                int die1 = 1 + random.nextInt((6 - 1) + 1);
+                int die2 = 1 + random.nextInt((6 - 1) + 1);
+
+                if(die1 + die2 == num1 || die1 + die2 == num2)
+                {
+                    pwin++;
+                    if(pwin == Integer.parseInt(txtInArow.getText()))
+                    {
+                        ptotal++;
+                        pwin = 0;
+                    }
+                }
+                else
+                {
+                    pwin = 0;
+                }                                       
+                trials++;                        
+            }
+            lblResult.setText("<html>Result: <b><font color=\"red\">" + ptotal +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                                        
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -287,6 +316,7 @@ public class DiceTrials extends javax.swing.JFrame {
     private javax.swing.JComboBox jBoxDie1;
     private javax.swing.JComboBox jBoxDie2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblDiceNumbers;
     private javax.swing.JLabel lblDiceNumbers1;
     private javax.swing.JLabel lblDiceNumbers2;
