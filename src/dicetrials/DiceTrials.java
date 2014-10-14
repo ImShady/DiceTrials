@@ -3,7 +3,12 @@
  */
 package dicetrials;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
 
 /*
@@ -245,58 +250,68 @@ public class DiceTrials extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeginActionPerformed
-        int num1 = jBoxDie1.getSelectedIndex() + 2;
-        int num2 = jBoxDie2.getSelectedIndex() + 2;
-        int pwin = 0, ptotal = 0, trials = 0;
-        Random random = new Random();        
-        
-        if(rdoSuccess.isSelected())
-        {
-            for(int i = 0; i < Integer.parseInt(txtSuccess.getText()); i++)           
+        PrintStream printer = null;
+        try {
+            int num1 = jBoxDie1.getSelectedIndex() + 2;
+            int num2 = jBoxDie2.getSelectedIndex() + 2;
+            int pwin = 0, ptotal = 0, trials = 0;
+            Random random = new Random();
+            File theTrials = new File("Trials.docx");
+            printer = new PrintStream(theTrials);
+            if(rdoSuccess.isSelected())           
             {
-                pwin = 0;
-                while(Integer.parseInt(txtInArow.getText()) != pwin)
+                for(int i = 0; i < Integer.parseInt(txtSuccess.getText()); i++)
+                {
+                    pwin = 0;
+                    while(Integer.parseInt(txtInArow.getText()) != pwin)
+                    {
+                        int die1 = 1 + random.nextInt((6 - 1) + 1);
+                        int die2 = 1 + random.nextInt((6 - 1) + 1);
+                        
+                        printer.println(die1 + " + " + die2 + " = " +  (die1 + die2));
+                        
+                        if(die1 + die2 == num1 || die1 + die2 == num2)
+                        {
+                            pwin++;
+                        }
+                        else
+                        {
+                            pwin = 0;
+                        }
+                        trials++;
+                    }
+                    ptotal++;
+                }
+                lblResult.setText("<html>Result: <b><font color=\"red\">" + txtSuccess.getText() +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");
+            }
+            else if(rdoTrials.isSelected())
+            {
+                for(int i = 0; i < Integer.parseInt(txtHowMany.getText()); i++)
                 {
                     int die1 = 1 + random.nextInt((6 - 1) + 1);
                     int die2 = 1 + random.nextInt((6 - 1) + 1);
-
+                    
                     if(die1 + die2 == num1 || die1 + die2 == num2)
                     {
                         pwin++;                       
+                        if(pwin == Integer.parseInt(txtInArow.getText()))
+                        {
+                            ptotal++;
+                            pwin = 0;
+                        }
                     }
                     else
                     {
                         pwin = 0;
-                    }                                       
+                    }                        
                     trials++;
                 }
-                ptotal++;                                
+                lblResult.setText("<html>Result: <b><font color=\"red\">" + ptotal +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                                
             }
-            lblResult.setText("<html>Result: <b><font color=\"red\">" + txtSuccess.getText() +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                            
-        }
-        else if(rdoTrials.isSelected())
-        {
-            for(int i = 0; i < Integer.parseInt(txtHowMany.getText()); i++)           
-            {
-                int die1 = 1 + random.nextInt((6 - 1) + 1);
-                int die2 = 1 + random.nextInt((6 - 1) + 1);
-
-                if(die1 + die2 == num1 || die1 + die2 == num2)
-                {
-                    pwin++;
-                    if(pwin == Integer.parseInt(txtInArow.getText()))
-                    {
-                        ptotal++;
-                        pwin = 0;
-                    }
-                }
-                else
-                {
-                    pwin = 0;
-                }                                       
-                trials++;                        
-            }
-            lblResult.setText("<html>Result: <b><font color=\"red\">" + ptotal +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                                        
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DiceTrials.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            printer.close();                                        
         }
     }//GEN-LAST:event_btnBeginActionPerformed
 

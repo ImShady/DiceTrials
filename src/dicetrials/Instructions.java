@@ -14,7 +14,7 @@ public class Instructions extends javax.swing.JFrame {
      */
     public Instructions() {
         initComponents();
-        jLabel1.setText("<html>1. Enter the two numbers that you'd like the dice to add to </br> warrant a successful roll. <br><br></br>2. Enter how many times the dice must add up to either of these numbers in order to be considered a successful set of rolls.<br><br> 3. You may choose between two methods to conduct the trials: <ul><li><b>Trials complete</b>: will make sure that the specified numbers of trials run idefinitely.</li></ul><ul><li><b>Trials Successful:</b> will run the trials until the specified number of successful outcomes occurs. </ul></li>");
+        lblInstructions.setText("<html>1. Enter the two numbers that you'd like the dice to add to </br> warrant a successful roll. <br><br></br>2. Enter how many times the dice must add up to either of these numbers in order to be considered a successful set of rolls.<br><br> 3. You may choose between two methods to conduct the trials: <ul><li><b>Trials complete</b>: will make sure that the specified numbers of trials run idefinitely.</li></ul><ul><li><b>Trials Successful:</b> will run the trials until the specified number of successful outcomes occurs. </ul></li>");
     }
 
     /**
@@ -27,7 +27,7 @@ public class Instructions extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblInstructions = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -35,10 +35,10 @@ public class Instructions extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
         lblTitle.setText("How To Use");
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Instructions");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblInstructions.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblInstructions.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblInstructions.setText("Instructions");
+        lblInstructions.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,7 +50,7 @@ public class Instructions extends javax.swing.JFrame {
                 .addContainerGap(205, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblInstructions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -59,7 +59,7 @@ public class Instructions extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblInstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
@@ -102,7 +102,7 @@ public class Instructions extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblInstructions;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }
