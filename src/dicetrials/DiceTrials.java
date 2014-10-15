@@ -3,12 +3,7 @@
  */
 package dicetrials;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.UIManager;
 
 /*
@@ -62,6 +57,7 @@ public class DiceTrials extends javax.swing.JFrame {
         rdoTrials = new javax.swing.JRadioButton();
         imgMainGIF = new javax.swing.JLabel();
         btnInstructions = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -124,6 +120,8 @@ public class DiceTrials extends javax.swing.JFrame {
                 btnInstructionsActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("© 2014 ShadyCraft, Inc. All Rights Reserved.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,6 +186,10 @@ public class DiceTrials extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(lblTrialsComplete)))))
                 .addContainerGap(105, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,82 +238,60 @@ public class DiceTrials extends javax.swing.JFrame {
                                 .addGap(3, 3, 3)
                                 .addComponent(lblResult))))
                     .addComponent(rdoSuccess))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnBegin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(imgMainGIF))
                     .addComponent(btnInstructions, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeginActionPerformed
-        PrintStream printer = null;
-        try {
-            int num1 = jBoxDie1.getSelectedIndex() + 2;
-            int num2 = jBoxDie2.getSelectedIndex() + 2;
-            int pwin = 0, ptotal = 0, trials = 0;
-            Random random = new Random();
-            File theTrials = new File("Trials.docx");
-            printer = new PrintStream(theTrials);
-            if(rdoSuccess.isSelected())           
-            {
-                for(int i = 0; i < Integer.parseInt(txtSuccess.getText()); i++)
-                {
-                    pwin = 0;
-                    while(Integer.parseInt(txtInArow.getText()) != pwin)
-                    {
-                        int die1 = 1 + random.nextInt((6 - 1) + 1);
-                        int die2 = 1 + random.nextInt((6 - 1) + 1);
-                        
-                        printer.println(die1 + " + " + die2 + " = " +  (die1 + die2));
-                        
-                        if(die1 + die2 == num1 || die1 + die2 == num2)
-                        {
-                            pwin++;
-                        }
-                        else
-                        {
-                            pwin = 0;
-                        }
-                        trials++;
-                    }
-                    ptotal++;
-                }
-                lblResult.setText("<html>Result: <b><font color=\"red\">" + txtSuccess.getText() +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");
-            }
-            else if(rdoTrials.isSelected())
-            {
-                for(int i = 0; i < Integer.parseInt(txtHowMany.getText()); i++)
-                {
+        int num1 = jBoxDie1.getSelectedIndex() + 2;
+        int num2 = jBoxDie2.getSelectedIndex() + 2;
+        int pwin = 0, ptotal = 0, trials = 0;
+        Random random = new Random();
+        if (rdoSuccess.isSelected()) {
+            for (int i = 0; i < Integer.parseInt(txtSuccess.getText()); i++) {
+                pwin = 0;
+                while (Integer.parseInt(txtInArow.getText()) != pwin) {
                     int die1 = 1 + random.nextInt((6 - 1) + 1);
                     int die2 = 1 + random.nextInt((6 - 1) + 1);
-                    
-                    if(die1 + die2 == num1 || die1 + die2 == num2)
-                    {
-                        pwin++;                       
-                        if(pwin == Integer.parseInt(txtInArow.getText()))
-                        {
-                            ptotal++;
-                            pwin = 0;
-                        }
-                    }
-                    else
-                    {
+
+                    if (die1 + die2 == num1 || die1 + die2 == num2) {
+                        pwin++;
+                    } else {
                         pwin = 0;
-                    }                        
+                    }
                     trials++;
                 }
-                lblResult.setText("<html>Result: <b><font color=\"red\">" + ptotal +  "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");                                
+                ptotal++;
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DiceTrials.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            printer.close();                                        
+            lblResult.setText("<html>Result: <b><font color=\"red\">" + txtSuccess.getText() + "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");
+        } else if (rdoTrials.isSelected()) {
+            for (int i = 0; i < Integer.parseInt(txtHowMany.getText()); i++) {
+                int die1 = 1 + random.nextInt((6 - 1) + 1);
+                int die2 = 1 + random.nextInt((6 - 1) + 1);
+
+                if (die1 + die2 == num1 || die1 + die2 == num2) {
+                    pwin++;
+                    if (pwin == Integer.parseInt(txtInArow.getText())) {
+                        ptotal++;
+                        pwin = 0;
+                    }
+                } else {
+                    pwin = 0;
+                }
+                trials++;
+            }
+            lblResult.setText("<html>Result: <b><font color=\"red\">" + ptotal + "</b></font></br> out of <b><font color=\"red\">" + trials + "</b></font> trials met the sepcified criteria.");
         }
     }//GEN-LAST:event_btnBeginActionPerformed
 
@@ -359,6 +339,7 @@ public class DiceTrials extends javax.swing.JFrame {
     private javax.swing.JLabel imgMainGIF;
     private javax.swing.JComboBox jBoxDie1;
     private javax.swing.JComboBox jBoxDie2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblDiceNumber2;
     private javax.swing.JLabel lblDiceRollsTitle;
     private javax.swing.JLabel lblInArow;
